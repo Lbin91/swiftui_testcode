@@ -2,7 +2,7 @@
 //  swiftui_testcodeTests.swift
 //  swiftui_testcodeTests
 //
-//  Created by 엑소더스이엔티 on 2023/02/10.
+//  Created by Bongjin Lee  on 2023/02/10.
 //
 
 import XCTest
