@@ -17,15 +17,16 @@ struct ChatList: View {
                   ForEach(0..<viewModel.messages.count, id: \.self) { row in
                       let string = viewModel.messages[row]
                       Text(string)
+                          .padding(.bottom, 10)
                 }
               }
+              .listStyle(.inset)
+              .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
               .onAppear() {
                   scrollView.scrollTo(viewModel.messages.count - 1)
               }
               .onChange(of: viewModel.messages.count) { newValue in
-                  DispatchQueue.main.async {
-                      scrollView.scrollTo(newValue - 1)
-                  }
+                  scrollView.scrollTo(newValue - 1)
               }
             }
             
@@ -44,7 +45,7 @@ struct ChatList_Previews: PreviewProvider {
 }
 
 class DirectMessageViewModel: ObservableObject {
-    @Published var messages: [String] = ["11","21","41","14","22","11","14","21","11","41","14","22","11","14","21","41","14","22","11","14","21","41","14","22","11","14","21","41","14","22","11","14","21"]
+    @Published var messages: [String] = ["11","21","41","14","22","11","14","21","11","41","14","22","11","14","21","41","14","22","11","14","21","41","14","22","11","14","21","41","14","22","11","14","0"]
     
     func createMsg() {
         let randomNum = Int.random(in: 0...100)
