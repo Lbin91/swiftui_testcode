@@ -11,7 +11,8 @@ import SwiftUI
 struct swiftui_testcodeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewModel = DirectMessageViewModel()
+            ChatList(viewModel: viewModel)
         }
     }
 }
